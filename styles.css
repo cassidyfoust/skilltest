@@ -1,0 +1,42 @@
+body {
+    background-color: #7A918D;
+}
+
+.header {
+    padding: 2vw;
+    font-family: 'Libre Barcode 39 Text', cursive;
+    font-size: 40px;
+}
+
+h2 {
+font-family: 'Bebas Neue', cursive;
+letter-spacing: .2vw;
+margin: 0;
+}
+
+p {
+    font-family: 'Oswald', sans-serif;
+    margin: 0.5vw 0;
+}
+
+table {
+    width: 95vw;
+}
+
+td {
+    padding: 1.5vw 3vw;
+}
+
+tr:nth-child(even) {background-color: #93B1A7;}
+tr:nth-child(odd) {background-color: #99C2A2;}
+
+tr:nth-child(even):hover {
+    background-color: rgb(202, 243, 229);
+}
+
+tr:nth-child(odd):hover {background-color: rgb(186, 236, 197);}
+
+.story-wrapper {
+    display: flex;
+    justify-content: center;
+}

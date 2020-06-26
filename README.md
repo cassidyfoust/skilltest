@@ -27,6 +27,17 @@ Try to timebox your work to approximately 1-2 hours.
 
 # Discussion Notes
 1. What decisions did you make before you began development?
-1. How did you decide what to work on in order to meet the time constraint?
-1. What was your decision making process for your code organization?
-1. If you had more time, what would you have implemented?
+
+To keep the code as simple as possible (and accomplishable within the timebox), I decided not to use a server and keep all of my code clientside. I decided the only files I would create would be an index.html, a client.js, and a styles.css.
+
+2. How did you decide what to work on in order to meet the time constraint?
+
+The requirements appeared to be ordered by priority level - i.e., by necessity one would need to fetch the Hacker News stories before displaying the title, author, and time posted - so I worked my way down the list.
+
+3. What was your decision making process for your code organization?
+
+The directive given was straightforward and, particularly with the use of vanilla JS and no frameworks, it made sense not to complicate the code too much with extra files, imports, exports, etc. I stuck to what I needed to make a clean and well-designed product.
+
+4. If you had more time, what would you have implemented?
+
+There is always more design work to be done, so some more CSS tweaks would definitely have been in order. I also was unable to figure out server setup with vanilla javascript within the timebox, but server setup is something I wanted to explore further in order to get all of the heavy lifting off of the clientside. (It doesn't seem necessary, but it's something I would like to know how to do for the future.)
