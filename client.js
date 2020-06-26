@@ -1,6 +1,6 @@
 let stories = "";
-var more = '<div style="height: 1000px; background: #EEE;"></div>';
 
+// fetches IDs of stories from Hacker News API
 function getStories() {
   fetch("https://hacker-news.firebaseio.com/v0/newstories.json")
     .then((response) => {
@@ -8,16 +8,15 @@ function getStories() {
     })
     .then((myJson) => {
       stories = myJson;
-      for (let i = 0; i < 4; i++) {
-        getFirstStoryObjects(myJson[i]);
+      for (let i = 0; i < stories.length; i++) {
+        getStoryObjects(myJson[i]);
       }
     });
 }
 
-getStories();
-
-function getFirstStoryObjects(json) {
-  fetch(`https://hacker-news.firebaseio.com/v0/item/${json}.json?print=pretty`)
+// takes in news story id and returns news story object, then appends to table
+function getStoryObjects(id) {
+  fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`)
     .then((response) => {
       return response.json();
     })
@@ -35,26 +34,7 @@ function getFirstStoryObjects(json) {
     });
 }
 
-function getScrollStoryObjects(json) {
-  fetch(`https://hacker-news.firebaseio.com/v0/item/${json}.json?print=pretty`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((myJson) => {
-      time = formatTime(myJson.time);
-      let more =
-        "<tr><td><h2>" +
-        myJson.title +
-        "</h2>" +
-        "<p> Posted by <strong>" +
-        myJson.by +
-        "</strong> at <strong>" +
-        time +
-        "</strong></p></td></tr>";
-      content.innerHTML += more;
-    });
-}
-
+// converts time from unix timestamp to 24-hour:m:s format
 function formatTime(time) {
   let unix_timestamp = time;
 
@@ -69,26 +49,5 @@ function formatTime(time) {
   return formattedTime;
 }
 
-let newContent = 4;
-
-var wrapper = document.getElementById("wrapper");
-var content = document.getElementById("stories");
-
-function addEvent(obj, ev, fn) {
-  if (obj.addEventListener) obj.addEventListener(ev, fn, false);
-  else if (obj.attachEvent) obj.attachEvent("on" + ev, fn);
-}
-
-function scroller() {
-  content.innerHTML =
-    wrapper.scrollTop +
-    "+" +
-    wrapper.offsetHeight +
-    "+100>" +
-    content.offsetHeight;
-  if (wrapper.scrollTop + wrapper.offsetHeight + 100 > content.offsetHeight) {
-    newContent += 1;
-    getScrollStoryObjects(stories[newContent]);
-  }
-}
-addEvent(wrapper, "scroll", scroller);
+// retrieve stories on page load
+getStories();

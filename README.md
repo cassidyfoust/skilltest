@@ -40,4 +40,4 @@ The directive given was straightforward and, particularly with the use of vanill
 
 4. If you had more time, what would you have implemented?
 
-There is always more design work to be done, so some more CSS tweaks would definitely have been in order. I also was unable to figure out server setup with vanilla javascript within the timebox, but server setup is something I wanted to explore further in order to get all of the heavy lifting off of the clientside. (It doesn't seem necessary, but it's something I would like to know how to do for the future.)
+There is always more design work to be done, so some more CSS tweaks would definitely have been in order. I also was unable to figure out server setup with vanilla javascript within the timebox, but server setup is something I wanted to explore further in order to get all of the heavy lifting off of the clientside. (It doesn't seem necessary, but it's something I would like to know how to do for the future.) The infinite scroll is also not a true infinite scroll, just a MacGuyvered one that loads a large number of objects at once.
